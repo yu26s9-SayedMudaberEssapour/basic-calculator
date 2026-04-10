@@ -1,16 +1,19 @@
 package com.pluralsight;
 import java.util.Scanner;
+import java.util.*;
 
 public class basicCalculator {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-
+        //asking for the first number
         System.out.print("Enter your first Number: ");
         int firstNum = scanner.nextInt();
 
 
+
+        //asking for the second number
         System.out.print("Enter your Second Number: ");
         int secondNum = scanner.nextInt();
         String a = scanner.nextLine();
@@ -18,22 +21,33 @@ public class basicCalculator {
         System.out.println("Possible calculations: \n (A)add \n (S)subtract \n (M)multiply \n (D)divide");
 
 
-        char letter = scanner.next().charAt(0);
-        int answer = 0;
+        String letter = scanner.nextLine();
+        double answer = 0;
+        String sign = "";
 
-        if (letter == ('A')) {
+        if (letter.equalsIgnoreCase("A")) {
             answer = firstNum + secondNum;
-        } else if (letter == ('S')) {
+            sign = "+";
+
+        } else if (letter.equalsIgnoreCase("S")) {
             answer = firstNum - secondNum;
-        } else if (letter == ('M')) {
+            sign = "-";
+
+        } else if (letter.equalsIgnoreCase("M")) {
             answer = firstNum * secondNum;
-        } else if (letter == ('D')) {
+            sign = "*";
+
+        } else if (letter.equalsIgnoreCase("D")) {
             answer = firstNum / secondNum;
+            sign = "/";
         } else {
             System.out.println("Not one of the options, Sorry!");
+
         }
 
-        System.out.println("Your answer is: " + answer);
+        System.out.printf("your answer is: %d %s %d = %f" , firstNum, sign, secondNum,answer);
+
+
     }
 
 }
